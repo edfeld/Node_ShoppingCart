@@ -1,0 +1,25 @@
+{
+  "name": "bamazonCustomer",
+  "version": "1.0.0",
+  "description": "Online retail store application written in node",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edfeld/bamazonCustomer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edfeld/bamazonCustomer/issues"
+  },
+  "homepage": "https://github.com/edfeld/bamazonCustomer#readme",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "inquirer": "^6.2.0",
+    "mysql": "^2.16.0"
+  }
+}
