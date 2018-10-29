@@ -1,7 +1,5 @@
 //  Bamazon Customer program
 
-// import Table from 'cli-table';
-// var Table = require('../lib');
 var Table = require('cli-table');
 
 var mysql = require("mysql");
@@ -27,7 +25,6 @@ let arrQuantity = [];
 let arrProductName = [];
 let arrPrice = [];
 let productQuantity;
-let productName;
 let price;
 let objItem;
 connection.connect(function (err) {
@@ -50,13 +47,15 @@ var customerOrder = function () {
             arrPrice.push(product.price);
             
         });
-
+        // a for loop will also work:  
+        // for (let i = 0; i < items.length; i++) {
+        //     const element = items[i];
+        //     console.log("for loop element: ", element);
+        // }
 
         printTable(items);
-        //   customerOrder();
-
-
         console.log("calling customer Inquirer")
+        // This is the prompt for the client purchase
         inquirer.prompt([{
                 type: 'input',
                 name: 'item_identity',
