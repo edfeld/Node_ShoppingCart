@@ -70,7 +70,7 @@ var customerOrder = function () {
                         productName = arrProductName[i];
                         price = arrPrice[i];
                         objItem = { 'productName': arrProductName[i], 'quantity': arrQuantity[i], 'price': arrPrice[i] };
-                        console.log("price: ", price);
+                        // console.log("price: ", price);
                         return true;
                     }
                 }
