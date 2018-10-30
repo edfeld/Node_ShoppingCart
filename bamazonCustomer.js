@@ -80,7 +80,12 @@ var customerOrder = function () {
                 name: 'quantity',
                 message: "How many units would you like to purchase?",
                 validate: function (quantity) {
-                    // console.log("productQuantity: ", productQuantity);
+                    // console.log("productQuantity: ", quantity);
+                    // console.log("typeof quantity: ", typeof quantity);
+                    // console.log("typeof parseint(quantity): ", typeof parseInt(quantity));
+                    // console.log("parseInt(quantity): ", parseInt(quantity));
+                    if (isNaN(parseInt(quantity)))
+                        return "invalid amount -- not numeric";
                     if (objItem.quantity < parseInt(quantity)) {
                         return "Insufficient Stock";
                     } else {
@@ -139,10 +144,12 @@ function printTable(arrTable) {
 
 }
 
-function PrintTableVert(productName, quantity, totalCost) {
+function PrintTableVert(productName, quantity, unitPrice) {
+    let totalCost = quantity * unitPrice;
     // vertical tables
     console.log("printTablleVert - entry");
     console.log("parms: ", productName + " " + quantity + " " + totalCost);
+
     var table2 = new Table();
 
     table2.push({
