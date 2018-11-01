@@ -19,14 +19,16 @@ var connection = mysql.createConnection({
     database: "bamazon"
 });
 
-let ProductTable = [];
+
 let arrID = [];
 let arrQuantity = [];
 let arrProductName = [];
 let arrPrice = [];
 let productQuantity;
-let price;
+// let price;
 let objItem;
+
+// connect to the database and call customerOrder
 connection.connect(function (err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
@@ -34,8 +36,11 @@ connection.connect(function (err) {
 
 });
 
+// CustomOrder produces a list of the products and then prompts the user
+// place an order
 var customerOrder = function () {
 
+    // We run a query against all products
     let myQuery = "SELECT * FROM products";
     connection.query(myQuery, function (err, items) {
         if (err) throw err;
@@ -53,6 +58,7 @@ var customerOrder = function () {
         //     console.log("for loop element: ", element);
         // }
 
+        //Call the print table function to print all products
         printTable(items);
         console.log("calling customer Inquirer")
         // This is the prompt for the client purchase
@@ -68,7 +74,7 @@ var customerOrder = function () {
                         // console.log("\ni: ", i + " " + arrQuantity[i]);
                         productQuantity = arrQuantity[i];
                         productName = arrProductName[i];
-                        price = arrPrice[i];
+                        // price = arrPrice[i];
                         objItem = { 'productName': arrProductName[i], 'quantity': arrQuantity[i], 'price': arrPrice[i] };
                         // console.log("price: ", price);
                         return true;
@@ -84,6 +90,7 @@ var customerOrder = function () {
                     // console.log("typeof quantity: ", typeof quantity);
                     // console.log("typeof parseint(quantity): ", typeof parseInt(quantity));
                     // console.log("parseInt(quantity): ", parseInt(quantity));
+                    // Validate for NaN and if the quantity is greater than
                     if (isNaN(parseInt(quantity)))
                         return "invalid amount -- not numeric";
                     if (objItem.quantity < parseInt(quantity)) {
@@ -94,6 +101,7 @@ var customerOrder = function () {
                 }
             }
         ]).then(function (custInput) {
+            // .then handles the database update
             console.log("Inquirer User Input: ", custInput);
             let remainingQuantity = productQuantity - parseInt(custInput.quantity)
             console.log("remaining Quantity: ", remainingQuantity);
@@ -109,7 +117,9 @@ var customerOrder = function () {
                 ],
                 function (err, res) {
                     console.log(res.affectedRows + " products updated!\n");
+                    // print the order with the total purchase price using CLI-Table
                     PrintTableVert(objItem.productName, custInput.quantity, objItem.price);
+                    // Prompt the user if they want to return for another purchase
                     inquirer.prompt([{
                         type: 'input',
                         name: 'isBackToCustOrder',
