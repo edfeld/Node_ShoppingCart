@@ -1,4 +1,4 @@
-# bamazonCustomer
+# Node_ShoppingCart
 
 This is an mock online retail store application written in node.js with MySQL.  It runs as a console app.
 
