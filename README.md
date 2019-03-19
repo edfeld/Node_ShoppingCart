@@ -29,7 +29,7 @@ This is an mock online retail store application written in node.js with MySQL.  
 
 7. Once the customer has placed the order, the application checks if the store has enough of the product to meet the customer's request.
 
-   * If not, the app logs the phrase like `Insufficient quantity!`, and prevents the order from going through.
+   * If not, the app logs the phrase, `Insufficient quantity!`, and prevents the order from going through.
 
 8. If the store _does_ have enough of the product, the app will fulfill the customer's order.
    * The app updates the SQL database to reflect the remaining quantity.
