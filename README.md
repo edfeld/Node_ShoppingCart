@@ -37,7 +37,7 @@ This is an mock online retail store application written in node.js with MySQL.  
 
 9. The user is allowed to reenter the purchase process or exit the application.
 
-10. Here is the link to my video demonstration:  https://drive.google.com/file/d/1Rk4rCwSq4HEOBeHs8fSkMIS1yzXNALmQ/view
+10. Here is the link to my video demonstration:  <https://drive.google.com/file/d/1Rk4rCwSq4HEOBeHs8fSkMIS1yzXNALmQ/view>
 
 11. Here is a screen shot showing that the inventory on Polo shirts had been reduced from 3 to 1 during the video Demo:
     [Screen Shot](Product_table_db_screenshot.png)
